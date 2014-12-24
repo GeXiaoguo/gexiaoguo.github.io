@@ -2,7 +2,7 @@
 layout: post
 title: My blog is up
 ---
-This blog is built following the wonderful instructions posted by Barry Clark at http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/
+This blog is built following the wonderful instructions [posted by Barry Clark](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/) 
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
