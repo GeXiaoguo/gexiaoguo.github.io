@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Notes on C++, C#, OO design and more!
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself. 
+A C++, C# programmer.  
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[xiaoguo_ge@yahoo.com](mailto:xiaoguo_ge@yahoo.com)
