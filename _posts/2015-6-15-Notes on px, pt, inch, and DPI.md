@@ -7,7 +7,7 @@ The fact that there are so many seach results on this topic tells how confusing 
 
 Here are the points that I find misleading when reading the documents.
 
-1. px, pt, in and cm are all length unit.
+1. px, pt, in and cm are all length units.
 Defining px as "device independent pixel" is really misleading. Both px and pt are length units. 1 px = 1/96 inch and 1 pt = 1/72 inch. They have nothing to do with device Independence and pixels. 
 
 2. DPI (Dots per inch) is a system SW setting
@@ -15,4 +15,6 @@ To convert length(expressed in px, pt, in, or cm) to physical pixels, we need DP
 
 3. DPI is also a monitor physics property
 This is another point that confuses people. DPI is often used indistinguishably describing both the system SW setting and monitor physics. 
-DPI as monitor physics tells how many physical pixels occupie one physical inch on a monitor. On a monitor of 96 DPI, 96 physical pixels occupy 1 physical inch. 
+DPI as monitor physics tells how many physical pixels occupie one physical inch on a monitor. On a monitor of 96 DPI, 96 physical pixels occupy 1 physical inch.
+
+For example: If a line is specified as 1 in ( or 96px, 72pt, 2.54cm) in WPF, this line is said to be logically 1 inch long. When drawing the line, WPF needs to calculate how many physical pixels to draw on the monitor. To do this, it uses the system DPI setting. If the DPI is set to 96, then WPF will paint 96 physcial pixels onto the monitor. How long this line measures physically on the monitor depends on the monitor DPI property. On a monitor of 96 DPI, this line will apear to be just 1 inch long.
