@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Notes on px, pt, inch, and DPI
+title: Notes on px, pt, inch, and DPI in WPF
 ---
 
 The fact that there are so many seach results on this topic tells how confusing the documents are. 
