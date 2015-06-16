@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于 px, pt, inch, DPI的笔记
+title: 关于WPF中px, pt, inch, DPI的笔记
 ---
 网上有无数关于px, pt的搜索结果，这说明了关于这个题目的文档有多么难懂和误导。
 
