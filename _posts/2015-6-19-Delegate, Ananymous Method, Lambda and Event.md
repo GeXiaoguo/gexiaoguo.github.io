@@ -46,8 +46,10 @@ myDel -= myFunction
 ```c#
 myDelegate myDel = myFunction;//instantiating an instance with Method Group Conversion.
 ```       
+###3 Covariance and Controvariance
+Method signatures matching are introduced in .Net 3.5. It is called  [Variance](https://msdn.microsoft.com/en-us/library/dd233060.aspx). The return type is matched with Covariance(sub class is matched to the super class), the method parameters are matched with Controvariance(??)
 
-###3 Anonymous Function
+###4 Anonymous Function
    To reducing typing even more and also to make the code cleaner(if myFunction is only intended to be used with delegate, giving it a name and exposing it to others is not clean), anonymous function is invented to to address this problem
    
    using anonymous function, the code can be written like below
@@ -66,7 +68,7 @@ myDelegate myDel = myFunction;//instantiating an instance with Method Group Conv
     }
    ```
    
-###4 Lambda Expression
+###5 Lambda Expression
    To further simplify the syntax when writing anonymous method, Lambda expression is introduced
    ```c#
   class DelegateDemo_WithLambdaExpression
@@ -95,7 +97,7 @@ myDelegate myDel = myFunction;//instantiating an instance with Method Group Conv
    ```
   C# compiler implemented a lot of syntactic sugar to further simplify the lambda expression. How far you should with simplification depends on personal taste. But the golden standard is how easy it is to read the code, not how fast to type it.
   
-##5 Delegate and Event
+##6 Delegate and Event
 Delegate concept matches perfectly with event pattern. A delegate is a function list that each entries can be seen as an observer. Invoking the delegate calls each observer one by one. An sample implementation of event is given below.
 ```c#
 class DelegateDemo_SimulateEvent
@@ -163,6 +165,6 @@ The real event implemntation with EventHandler<T> : where T is EventArgs
     }
 ```
 
-below are some rants about the Microsoft guidelines
-1. EventHandler<T> is actually a generic type which defines an event. If it actually defines an event, then why name it EventHandler. This only adds confusion to developer new to C#
+###7 Rants about the Microsoft guidelines
+1. EventHandler<T> is actually a generic type which defines an event. Naming it EventHandler mislead people new to c# to believe that it is for defining the handler. 
 2. The function which raises the event is named OnRaiseCustomEvent. Calling it RaiseCustomEvent maybe clearer. Adding an On only confuses developers because it sounds like the handler rather than the raiser of the event.
