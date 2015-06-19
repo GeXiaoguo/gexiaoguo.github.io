@@ -7,10 +7,11 @@ title: Notes on delegate, anonymous method, lambda expression and event
   Many people say that a delegate conceptually is a typed function pointer. It is not exactly accurate, even conceptually. A delegate type is actually a typed function group or list. It can contain multiple entries. Each entry points to a function with the conforming signature with the delegate.
 
   In the very beginning, there was no anonymous method, no lambda. The concept of delegate is clear and simple.
-  The steps to use delegate are: 
-  ..1 You defined a delegate type named myDelegate
-  ..2 You instantiate an instance of it by invoking its constructor
-  ..3 You invoke the instance.
+  
+  The steps to use delegate are:
+  *i: define a delegate type
+  *ii: instantiate an instance of defined type by invoking its constructor
+  *iii: invoke the instance
   
 ```c#
   class DelegateDemo_TheVeryBasic
