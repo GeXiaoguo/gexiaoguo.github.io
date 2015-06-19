@@ -1,10 +1,17 @@
 ---
 layout: post
-title: notes on delegate, ananymous method, lambda and event
+title: Notes on delegate, anonymous method, lambda expression and event
 ---
 
-###1 In the very begining
-  In the very beginning, there was no ananymous method, no lambda. The concept of delegate is clear and simple, but you will have to type more code.
+###1 The Basic
+  Many people say that a delegate conceptually is a typed function pointer. It is not exactly accurate, even conceptually. A delegate type is actually a typed function group or list. It can contain multiple entries. Each entry points to a function with the conforming signature with the delegate.
+
+  In the very beginning, there was no anonymous method, no lambda. The concept of delegate is clear and simple.
+  The steps to use delegate are: 
+  ..1 You defined a delegate type named myDelegate
+  ..2 You instantiate an instance of it by invoking its constructor
+  ..3 You invoke the instance.
+  
 ```c#
   class DelegateDemo_TheVeryBasic
   {
@@ -20,33 +27,29 @@ title: notes on delegate, ananymous method, lambda and event
       }
   }
 ```
-  Like it is noted in the code comments above, you defined a delegate type named myDelegate. Instantiate an instance of it. And invoke the instance.
-  Many people say that a delegate type is a typed function pointer. It is not exactly accurate. A delegate type is actually a typed function group or list. Calling it function list probably makes the understanding much more straight forward.
-  More instances can be added to the list with the += operator as below.
+  Since delegate are actually function list, you can add an entry with += operator and remove entries with -= operator like below.
 ```c#
 myDel += myFunction;
 ```
-  In this case, there will be multiple entires of myFunction in the myDel delegate instance. Invoking the delegate now will invoke myFunciton twice. One thing to not is that if myFunction has a return type, the return value of the last invocation of myFunction will be the return value of the delegate.
-  
-  entries can also be removed from the delegate with -= operator
+  In this case, there will be multiple entries of myFunction in the myDel delegate instance. Invoking the delegate now will invoke myFunciton twice. One thing to not is that if myFunction has a return type, the return value of the last invocation of myFunction will be the return value of the delegate.
 
 ```c#
 myDel -= myFunction
 ```
-  removes all entries of the myFunction from the method list. 
+  removes all occurrences of myFunction from the method list. 
   
 ###2 Method Group Conversion
-  To make the coding faster, then came along Method Group Conversion in C# 2.0. As a syntatic sugur, you dont have to type as much. The compiler will invoke the delegate(meaning the typed method group) constuctor for your.
+  To make coding faster, Method Group Conversion was invented in C# 2.0. As a syntactic sugar, you don’t have to type as much. The compiler will invoke the delegate(meaning the typed method group) constructor for your.
    
   The new way of instantiating delegate instances is like below.  
 ```c#
 myDelegate myDel = myFunction;//instantiating an instance with Method Group Conversion.
 ```       
 
-###3 Ananymous Function
-   To reducing typeing even more and also to make the code cleaner(if myFunction is only intended to be used with delegate, giving it a name and exposing it to others is really not clean), ananymous function is invented to to address this problem
+###3 Anonymous Function
+   To reducing typing even more and also to make the code cleaner(if myFunction is only intended to be used with delegate, giving it a name and exposing it to others is not clean), anonymous function is invented to to address this problem
    
-   using ananymous function, the code can be written like below
+   using anonymous function, the code can be written like below
    ```c#
    class DelegateDemo_WithAnanymousFunction
     {
@@ -63,7 +66,7 @@ myDelegate myDel = myFunction;//instantiating an instance with Method Group Conv
    ```
    
 ###4 Lambda Expression
-   To further simplify the syntax when writing ananymous method, Lambda expression is introduced
+   To further simplify the syntax when writing anonymous method, Lambda expression is introduced
    ```c#
   class DelegateDemo_WithLambdaExpression
     {
@@ -89,10 +92,10 @@ myDelegate myDel = myFunction;//instantiating an instance with Method Group Conv
         }
     }
    ```
-  C# compiler implemented a lot of syntatic sugar to further simplify the lambda expression. How far you should with simplification depends on personal taste. But the goldan standard is how easy it is to read the code, not how fast to type it.
+  C# compiler implemented a lot of syntactic sugar to further simplify the lambda expression. How far you should with simplification depends on personal taste. But the golden standard is how easy it is to read the code, not how fast to type it.
   
-##5 Delegagte and Event
-Delegate concept matches perfectly with event pattern. A delegate is a function list that each entries can be seen as an observer. Invoking the delegate calls each observer one by one. An sample implementaion of event is given below.
+##5 Delegate and Event
+Delegate concept matches perfectly with event pattern. A delegate is a function list that each entries can be seen as an observer. Invoking the delegate calls each observer one by one. An sample implementation of event is given below.
 ```c#
 class DelegateDemo_SimulateEvent
     {
@@ -126,9 +129,9 @@ class DelegateDemo_SimulateEvent
         }
     }
 ```
-This way of implementing event pattern is very flexible. In fact, it is too flexible that microsoft invented EventHandler<T> to retrict the flexibility and make everyone comform to the [event raising and handling guideline](https://msdn.microsoft.com/en-us/library/w369ty8x.aspx)
+This way of implementing event pattern is very flexible. In fact, it is too flexible that Microsoft invented EventHandler<T> to reduce the flexibility and make everyone conform to the [event raising and handling guideline](https://msdn.microsoft.com/en-us/library/w369ty8x.aspx)
 
-The real event implemntation with EventHandler<T> will be looking like below
+The real event implemntation with EventHandler<T> : where T is EventArgs
 ```c#
         private void RaiseMyEvent()
         {
@@ -159,6 +162,6 @@ The real event implemntation with EventHandler<T> will be looking like below
     }
 ```
 
-below are some rant about the microsoft guidelines
+below are some rants about the Microsoft guidelines
 1. EventHandler<T> is actually a generic type which defines an event. If it actually defines an event, then why name it EventHandler. This only adds confusion to developer new to C#
-2. The function which raises the event is named OnRaiseCustomEvent. Calling it RaiseCustomEvent maybe clearer. Adding an On only confusing the developer with the real handler.
+2. The function which raises the event is named OnRaiseCustomEvent. Calling it RaiseCustomEvent maybe clearer. Adding an On only confuses developers because it sounds like the handler rather than the raiser of the event.
