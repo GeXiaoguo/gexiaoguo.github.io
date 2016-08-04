@@ -6,12 +6,16 @@ Josh Smith had <a href="https://groups.google.com/forum/#!topic/wpf-disciples/P-
 
 The costs/benefits I can think of for each camp are listed below.
 Cost/Benefit of loosely coupled ViewModel
+
+
  - - complex xaml, mixed with dynamic behaviors(ValueConverters, Behaviors)
  - - complex UI automation test cases to cover the complex view
  - + being able to switch view without affecting the ViewModel. But the real benefit has to be aligned with business need. Is there any demand, plan to switch views
 
 
 Benefit of a tightly coupled ViewModel
+
+
 - + a much less lightweight View(e.g. reduce ValueConverters, easier to eliminate code behind)
 - + less UI Automation testing 
 - + it is much easier to unit test ViewModel than UI automation testing the View. So, if putting view specific code( e.g. a visibility property) does not affect the unit testability of the ViewModel, it should be encouraged.
