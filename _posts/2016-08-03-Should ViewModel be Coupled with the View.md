@@ -6,6 +6,7 @@ Josh Smith had <a href="https://groups.google.com/forum/#!topic/wpf-disciples/P-
 
 The costs/benefits I can think of for each camp are listed below.
 
+
 Cost/Benefit of loosely coupled ViewModel
 
 
