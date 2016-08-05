@@ -2,17 +2,16 @@
 layout: post
 title: Is It Ok to Couple ViewModel with View
 ---
-Josh Smith had <a href="https://groups.google.com/forum/#!topic/wpf-disciples/P-JwzRB_GE8">a great post</a> on this topic. Although he seems to be in the minority in the following discussions, I have to say that I agree with him completely. A lot of people seem to believe that having a View agnostic ViewModel is automatically a good thing. I think it should all boils down to benefit/cost analysis. I just can't justify the extra cost in trying to develop a completely View agnostic ViewModel
+Josh Smith had <a href="https://groups.google.com/forum/#!topic/wpf-disciples/P-JwzRB_GE8">a great post</a> on this topic and suggested allow ViewModel to be coupled with the View can bring a lot of benefits. Although he seems to be in the minority in the following discussions, I have to say that I agree with him completely. A lot of people seem to believe that having a View agnostic ViewModel is automatically a good thing. I think it should all boils down to benefit/cost analysis of the two approaches and value each plus/minus according to your project needs.
+
 
 The costs/benefits I can think of for each camp are listed below.
 
 
 Cost/Benefit of loosely coupled ViewModel
-
-
- - minus: complex xaml, mixed with dynamic behaviors(ValueConverters, Behaviors)
- - minus: complex UI automation test cases to cover the complex view
- - plus: being able to switch view without affecting the ViewModel. But the real benefit has to be aligned with business need. Is there any demand, plan to switch views
+: - complex xaml, mixed with dynamic behaviors(ValueConverters, MultiBindings)
+: - complex UI automation test cases to cover the complex view logic
+: + being able to switch view without affecting the ViewModel. But the real benefit has to be aligned with business need. Is there any demand, plan to switch views
 
 
 Benefit of a tightly coupled ViewModel
