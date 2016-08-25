@@ -17,8 +17,8 @@ Cost/Benefit of loosely coupled ViewModel
 Benefit of a tightly coupled ViewModel
 
 
-- plus: a much less lightweight View(e.g. reduce ValueConverters, easier to eliminate code behind)
-- plus: less UI Automation testing 
-- plus: it is much easier to unit test ViewModel than UI automation testing the View. So, if putting view specific code( e.g. a visibility property) does not affect the unit testability of the ViewModel, it should be encouraged.
+- +a much less lightweight View(e.g. reduce ValueConverters, easier to eliminate code behind)
+- +less UI Automation testing 
+- +it is much easier to unit test ViewModel than UI automation testing the View. So, if putting view specific code( e.g. a visibility property) does not affect the unit testability of the ViewModel, it should be encouraged.
 
 The decision should be based on how much each point costs/values to your project rather than how well each camp fits your philosophical belief.  
