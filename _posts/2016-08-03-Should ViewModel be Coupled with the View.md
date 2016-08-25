@@ -9,9 +9,9 @@ The costs/benefits I can think of for each camp are listed below.
 
 
 Cost/Benefit of loosely coupled ViewModel
-: - complex xaml, mixed with dynamic behaviors(ValueConverters, MultiBindings)
-: - complex UI automation test cases to cover the complex view logic
-: + able to switch view without affecting the ViewModel. How much this values to your project has to be evaluted.
+ - -complex xaml, mixed with dynamic behaviors(ValueConverters, MultiBindings)
+ - -complex UI automation test cases to cover the complex view logic
+ - +able to switch view without affecting the ViewModel. How much this values to your project has to be evaluted.
 
 
 Benefit of a tightly coupled ViewModel
