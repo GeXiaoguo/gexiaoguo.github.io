@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TPL guidelines
+title: TPL, async, await guidelines
 ---
 
 1. When using await, always explicity specify ConfigAwait
