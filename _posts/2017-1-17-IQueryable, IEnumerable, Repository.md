@@ -1,6 +1,6 @@
 # IQueryable, IEnumerable and Repositories #
 
-When implementing the Repository pattern against a database storage, one always has to choose from whether to return IEnumerable or IQueryable collection. I'd say neither is a good choice. Instead, the following pattern should be applied for the following reasons
+When implementing the Repository pattern against a database storage, one always has to choose from returning an IEnumerable or an IQueryable collection. I'd say neither is a good choice. Instead, the following pattern should be applied for the following reasons
   
 
     public List<Entity> GetEntity()  
