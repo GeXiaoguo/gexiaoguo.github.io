@@ -4,7 +4,7 @@ title: Using MVC, MVP and MVVM Together
 ---
 
 MVC, MVP and MVVM are all design patterns trying to separate the concern of Business Logic and Presentation.  There are often confusions and debates about the when to use which. But, in fact,  these patterns do not have to be mutually exclusive. They each addresses different concerns and can be used together like below.
-<p><img src="images\MVC+MVP+MVVM.png" alt="The Complete Solution"></p>
+<p><img src="/images/MVC+MVP+MVVM.png" alt="The Complete Solution"></p>
 The component responsibilities are listed below    
 
 
