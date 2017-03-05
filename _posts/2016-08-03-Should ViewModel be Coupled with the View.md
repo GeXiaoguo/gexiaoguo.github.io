@@ -1,20 +1,17 @@
 ---
 layout: post
-title: Is It Ok to Couple ViewModel with View
+title: ViewModel Should Be Coupled with The View
 ---
-Josh Smith had <a href="https://groups.google.com/forum/#!topic/wpf-disciples/P-JwzRB_GE8">a great post</a> on this topic and suggested allow ViewModel to be coupled with the View can bring a lot of benefits. Although he seems to be in the minority in the following discussions, I have to say that I agree with him completely. A lot of people seem to believe that having a View agnostic ViewModel is automatically a good thing. I think it should all boils down to benefit/cost analysis of the two approaches and value each plus/minus according to your project needs.
+Josh Smith had <a href="https://groups.google.com/forum/#!topic/wpf-disciples/P-JwzRB_GE8">a great post</a> on this topic and suggested allow ViewModel to be coupled with the View can bring a lot of benefits. Although he seems to be in the minority in the following discussions, I have to say that I agree with him completely.
 
-The costs/benefits I can think of for each camp are listed below.
+From a MVVM purist point of view, a ViewModel should always be agnostic to the View. This purist view bring problems
 
-Cost/Benefit of loosely coupled ViewModel
- - complex xaml, mixed with dynamic behaviors(ValueConverters, MultiBindings)
- - complex UI automation test cases to cover the complex view logic
- - able to switch view without affecting the ViewModel. How much this values to your project has to be evaluted.
+ - complex XAML, mixed with dynamic behaviors(ValueConverter, MultiBinding, Trigger)
+ - difficulty to cover behaviors in XAML by unit test 
+ - complex UI automation test cases to cover the complex XAML
 
-Benefit of a tightly coupled ViewModel
+One argument I often here about using View agnostic ViewModel is that you will be able to switch the view without affecting the ViewModel. But how much value it has to your project has to be evaluated. I have never seen any project that requires switching XAML view. And I would challenge anyone to try reusing the same ViewModel for web and desktop UI.
 
-- a much less lightweight View(e.g. reduce ValueConverters, easier to eliminate code behind)
-- less UI Automation testing 
-- it is much easier to unit test ViewModel than UI automation testing the View. So, if putting view specific code( e.g. a visibility property) does not affect the unit testability of the ViewModel, it should be encouraged.
+Allowing ViewModel to be coupled with the View is practically applying MVP to MVVM. 
 
-The decision should be based on how much each point costs/values to your project rather than how well each camp fits your philosophical belief.  
+And to follow the Single Responsibility Principle, we can also separate the Controller from the Presenter/ViewModel and end up with [MVC+MVP+MVVM The Complete Solution](http://gexiaoguo.github.io/MVC,-MVP-and-MVVM/ "MVC+MVP+MVVM The Complete Solution").
