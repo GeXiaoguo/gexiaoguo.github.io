@@ -72,23 +72,23 @@ For example, if for an error indicator on the UI which needs to turn red in case
 Defining a boolean HasError property on the ViewModel and then View converts the boolean flag into color
 
 
-    ```csharp
+```csharp
     public class ViewModel 
     {
        bool HasError { get; set; }
     }   
-    ```  
+```  
 
 
 is better than to simply define a ColorOfErrorIndicator property on the ViewModel.
 
 
-    ```csharp  
+```csharp
     public class ViewModel 
     {
        Color ColorOfErrorIndicator { get; set; }
     }   
-    ```  
+```  
    
 
 There is [a length discussion on this by Josh Smith](https://groups.google.com/forum/#!topic/wpf-disciples/P-JwzRB_GE8). But it seemed that he was not able to convince the community that this is a bad and costly belief. 
