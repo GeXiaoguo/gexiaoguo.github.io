@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using MVC, MVP and MVVM Together
+title: Combining MVC, MVP and MVVM
 ---
 
 There are often confusions about MVC, MVP and MVVM. These 3 patterns are all trying to address different concerns and do not have to be mutually exclusive. In a complex real world application, it is often beneficial to apply a combined pattern like below. 
