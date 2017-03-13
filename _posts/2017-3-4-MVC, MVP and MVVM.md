@@ -8,16 +8,16 @@ There are often confusions about MVC, MVP and MVVM. These 3 patterns are all try
 
 To exam the benefits of this combined pattern, let's start from each individual pattern and exam what they are missing. 
 
-##The MVC Pattern
+## The MVC Pattern
 <p><img src="/images/mvc.png" alt="MVC Diagram"></p>
 With MVC, the Presenter and ViewModol are missing.
   
 The MVC pattern dictates that a feature should be divided into there components based on three separate concerns. That is the presentation logic(a.k.a. the View), the control flow(a.k.a. the Controller), and the business logic(a.k.a the Model).
-###View
+### View
 The View handles presentation logic
-###Controller
+### Controller
 The Controller handles the control flow logic and updates the Model
-###Model
+### Model
 The Model handles the business logic concern. In a generalized sense, it represents the whole business logic Layer.  
 
  The problem with MVC is that it does not specify how the View and the Model should be structured internally. If taken literally, one could and usually does structure the View into a single class. We will then end up with a fat view which has the following problems:
@@ -27,17 +27,17 @@ The Model handles the business logic concern. In a generalized sense, it represe
 2. View is difficult to test.  
    Because the View is monolithic, and it usually couples tightly with the UI framework, unit testing the View becomes really hard. Just think how will you paint the screen and then verify that the screen is correctly painted in a unit test.
 
-##The MVP Pattern
+## The MVP Pattern
 <p><img src="/images/mvp.png" alt="MVP Diagram"></p>
 With MVP, the Controller and ViewModel are missing
 
 MVP is not a pattern that specifies how to structure the whole system. It only dictates how to structure the View. MVP completely separates the View from the Model and also solves the unit test problem of the View.
 
-###Model
+### Model
 Same as the Model in MVC, the Model should be the generalized Business Logic Layer instead of a single class. 
-###Presenter
+### Presenter
 The Presenter reads data from the Model and drives the View through an interface. This makes testing of the Presenter much easier. All presentation logic should be captured in the Presenter so that there should be nothing left in the View that worth testing. 
-###View
+### View
 The View in MVP is an implementation of the IView interface. And the view should be so thin that it should be acceptable not to unit testing it.   
 
 The problems with MVP is that if taken literally
@@ -47,15 +47,15 @@ The problems with MVP is that if taken literally
 2. Data Binding is not utilized  
    If binding is possible with the UI framework, it should be utilized to simplify the presenter. I've seen cases that people claiming that since they are using MVP, data binding should not be allowed. The Presenter should only drive the View through the IView interface. There is no ground for this argument. The IView interface is for solving the unit test problem. Utilizing data binding and is not harming the testability of the Presenter.
 
-###The MVVM Pattern
+### The MVVM Pattern
 <p><img src="/images/mvvm.png" alt="MVVM Diagram"></p>
 The Presenter and Controller are missing.
 
-With MVVM the ViewModel replaces the Presenter driving the View
+With MVVM, the **ViewModel** replaces the Presenter in driving the View. The differece is that the ViewModel drives the view with DataBinding, while the Presenter drives the view with an interface.
 
-1. View    
-   Bind to the ViewModel properties and update itself when ViewModel properties change.
-2. ViewModel
+### View
+   Bind to the ViewModel properties and update itself when ViewModel properties change.  
+### ViewModel
    Instead of driving the View through an interface, the ViewModel drives the view through changing its own properties and allow data binding to handle the rest
 
 Problems with MVVM are that   
