@@ -32,6 +32,8 @@ Split the code into different states in a state machine
 The details of the threading model of the state machine are shown below
 <p><image src="/images/async_await_threading_model.PNG"/></p>
 
+## Console apps are special
+
 ## stack spilling
 If await split code into multiple pieces and run in different threads, how can local variables be shared between different stages. .Net enables stack variable sharing by hoisting them into heap and restored them back onto stack   
 
@@ -39,6 +41,20 @@ If await split code into multiple pieces and run in different threads, how can l
 If a single method is split into pieces and run in different thread, then do these different pieces of code see different thread ambient information (e.g. SecurityContext, CurrentCulture, Principle). Historically these information by design, before TPL, async/awiat are invented, are attached to the running thread.
 
 Thread ambient information is captured into an ExecutionContext in the thread creating the calling the await, and restored to the thread executing the continuation.  
+
+## exception handling
+MVC Exception Filter
+Http Exception Filter
+Application_error
+Will not catch exceptions throw from the background thread
+await will transfer exception to the **awaiting thread**
+
+## Unit Testing
+unit testing threading model is different than Asp.Net, WPF, and WinForm
+not clear how it compares to Console apps. It depends on how NUnitTestRunner runs the testing. On main thread? or on thread pool thread.
+
+## Difference between Await, ContinueWith, Awaiter
+evaluation order
 
 # Code Snippets for Reference
 
@@ -73,4 +89,5 @@ Thread ambient information is captured into an ExecutionContext in the thread cr
 
 # References
 - [ExecutionContext vs SynchronizationContext](https://blogs.msdn.microsoft.com/pfxteam/2012/06/15/executioncontext-vs-synchronizationcontext/) 
+- [Await, SynchronizationContext, and Console Apps](https://blogs.msdn.microsoft.com/pfxteam/2012/01/20/await-synchronizationcontext-and-console-apps/)
 - [Microsoft Reference Source](https://referencesource.microsoft.com/)
