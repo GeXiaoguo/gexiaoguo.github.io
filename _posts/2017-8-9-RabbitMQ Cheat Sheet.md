@@ -26,6 +26,7 @@ message are routed from exchange to bindings that matches the routing key accord
 An direct exchange with an empty string name which binds to all queues and a binding routing key set to the name of the queue.
 
 #Message patterns:  
+
 ## Producer Consumer:  
 - message is only delivered to one consumer
 - producer publish to a direct exchange(can also be the default exchange)
