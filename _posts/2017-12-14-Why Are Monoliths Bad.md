@@ -1,9 +1,8 @@
 ---
 layout: post
-title: Why Are Monoliths Bad
+title: Monolithic applications are not so bad actually
 ---
 
-# It is not that bad actually
 Monolithic applications have a lot of advantages over microservices ones. For example:
  
 - Strong reference check accross the whole system.   

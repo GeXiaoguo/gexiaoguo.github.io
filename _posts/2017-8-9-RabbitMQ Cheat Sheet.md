@@ -3,7 +3,7 @@ layout: post
 title: RabbitMQ Cheat Sheet
 ---
 
-# RabbitMQ  
+# Terminologies
 - Queue: what you receive messages from  
 - Exchange: what you send messages to  
 - Binding: binds queues to exchanges  
